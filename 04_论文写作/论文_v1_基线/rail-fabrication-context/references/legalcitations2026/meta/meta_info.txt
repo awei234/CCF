@@ -1,0 +1,5 @@
+title: Do LLMs Fabricate Legal Citations? A Bilingual Benchmark on Saudi Data Protection Law and the GDPR
+authors: Noura Suliman Alrajeh
+venue: arXiv preprint arXiv:2607.11127
+year: 2026
+url: https://arxiv.org/abs/2607.11127

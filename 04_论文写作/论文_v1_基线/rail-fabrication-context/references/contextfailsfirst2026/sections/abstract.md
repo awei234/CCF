@@ -1,0 +1,3 @@
+# Abstract
+
+Validates context-engineering quality as an independent leading indicator of agent reliability via ProofAgent-Harness, a multi-juror consensus-based evaluation harness scoring context on seven criteria: role clarity, guardrail coverage, instruction consistency, tool schema quality, grounding sufficiency, injection hardening and token efficiency. In a controlled study holding frontier LLM agents fixed and varying only the operating context, grounding sufficiency predicts hallucination resistance, guardrail coverage predicts manipulation resistance, and instruction consistency predicts instruction following.

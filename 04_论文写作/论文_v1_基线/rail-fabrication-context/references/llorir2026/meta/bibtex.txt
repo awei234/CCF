@@ -1,0 +1,9 @@
+@inproceedings{dai2026llmorir,
+  title={LLM-Oriented Information Retrieval: A Denoising-First Perspective},
+  author={Dai, Lu and Sun, Liang and Cao, Fanpu and Rao, Ziyang and Yang, Cehao and Liu, Hao and Xiong, Hui},
+  booktitle={Proceedings of the 49th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 2026)},
+  year={2026},
+  eprint={2605.00505},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2605.00505}
+}

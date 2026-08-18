@@ -1,0 +1,3 @@
+# Abstract
+
+LLMs now routinely draft literature reviews, raising the risk of fabricated references (GPTZero found 53 papers with hallucinated citations among NeurIPS 2025 accepted papers). HALLMARK is a hallucination benchmark of 2,526 BibTeX entries spanning 14 hallucination types, three difficulty tiers and six diagnostic sub-tests per entry. Evaluating DOI-lookup baselines, frontier LLMs zero-shot, tool-augmented agents and a rule-based verifier shows that the false-positive rate (FPR), not recall, decides whether a verifier is deployable; agentic lookups buy recall but inflate FPR; and undetected fabrication remains the costlier error for the scientific record.

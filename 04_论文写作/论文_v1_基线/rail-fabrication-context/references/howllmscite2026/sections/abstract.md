@@ -1,0 +1,3 @@
+# Abstract
+
+One of the largest citation hallucination audits: 10 commercial LLMs prompted across four academic domains generating 69,557 citation instances verified against CrossRef, OpenAlex and Semantic Scholar. Hallucination rates span a fivefold range (11.4%-56.8%) and are shaped by model, domain and prompt framing. No model spontaneously generates citations when unprompted, suggesting hallucination is prompt-induced rather than intrinsic. Two practical filters: multi-model consensus (3+ LLMs citing the same work gives 95.6% accuracy) and within-prompt repetition (>2 replications gives 88.9% accuracy).

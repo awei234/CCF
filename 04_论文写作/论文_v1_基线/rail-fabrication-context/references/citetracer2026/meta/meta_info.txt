@@ -1,0 +1,5 @@
+title: Source or It Didn't Happen: A Multi-Agent Framework for Citation Hallucination Detection
+authors: Mingzhe Li, Zhiqiang Lin, Shiqing Ma
+venue: arXiv preprint arXiv:2605.08583
+year: 2026
+url: https://arxiv.org/abs/2605.08583

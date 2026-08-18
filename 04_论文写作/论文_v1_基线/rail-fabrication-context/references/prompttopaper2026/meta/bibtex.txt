@@ -1,0 +1,8 @@
+@misc{kamran2026prompttopaper,
+  title={Prompt-to-Paper: Agentic AI System for Bioinformatics},
+  author={Kamran, Ramsha and Amjad, Maheera and Mustansar, Zartasha and Shaukat, Arsalan and Sherbaz, Salma and Khan, Muhammad U. S.},
+  year={2026},
+  eprint={2607.05456},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2607.05456}
+}

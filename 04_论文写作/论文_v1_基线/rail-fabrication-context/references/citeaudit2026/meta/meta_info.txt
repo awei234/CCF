@@ -1,0 +1,5 @@
+title: CiteAudit: You Cited It, But Did You Read It? A Benchmark for Verifying Scientific References in the LLM Era
+authors: Kaiwen Shi, Weixiang Sun, Zheyuan Zhang, Lichao Sun, Nitesh V. Chawla, Yanfang Ye
+venue: arXiv preprint arXiv:2602.23452
+year: 2026
+url: https://arxiv.org/abs/2602.23452

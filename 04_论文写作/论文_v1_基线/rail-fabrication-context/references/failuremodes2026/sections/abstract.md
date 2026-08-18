@@ -1,0 +1,3 @@
+# Abstract
+
+Identifies four failure modes of LLMs on research-level math: citation fabrication (F1), premise smuggling (F2), silent problem reformulation (F3), and local-to-global compatibility gaps (F4). Auditing eight one-shot Gemini 2.5 Flash proofs finds not one confirmed fabricated citation yet every proof contains at least one load-bearing claim asserted as a 'fundamental result' with no justification — F2 is invisible to citation verification by design. A premise-audit instrument flags it at 100% precision and 50% proof-level recall, arguing for inference-time pipelines that prevent failure modes rather than only detect them.

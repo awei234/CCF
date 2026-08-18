@@ -1,0 +1,8 @@
+@misc{rafieioskooei2026deepagentic,
+  title={Deep Agentic Search for Repository-Level Code Question Answering: An Empirical Study},
+  author={Rafiei Oskooei, Amirkia and Ilci, Bora and Kayim, Alperen and Uzun, Mehmet Egemen and Can, Berat and Kara, Kaan Emre and Orhan, Ozan and Aktas, Mehmet S.},
+  year={2026},
+  eprint={2608.01507},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2608.01507}
+}

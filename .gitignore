@@ -1,0 +1,17 @@
+# Credentials and machine-local tooling
+_ssh/
+.zcode/
+.env
+.env.*
+*.pem
+*.key
+*AccessToken*.txt
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Large local server snapshot; not required for source reproducibility
+_share/CCF_server_2026-08-17.tar.gz

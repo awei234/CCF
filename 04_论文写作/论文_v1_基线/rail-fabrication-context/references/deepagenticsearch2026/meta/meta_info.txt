@@ -1,0 +1,5 @@
+title: Deep Agentic Search for Repository-Level Code Question Answering: An Empirical Study
+authors: Amirkia Rafiei Oskooei, Bora Ilci, Alperen Kayim, Mehmet Egemen Uzun, Berat Can, Kaan Emre Kara, Ozan Orhan, Mehmet S. Aktas
+venue: arXiv preprint arXiv:2608.01507
+year: 2026
+url: https://arxiv.org/abs/2608.01507

@@ -1,0 +1,8 @@
+@misc{ferreiradasilva2026trustworthy,
+  title={Toward Trustworthy Autonomous Science: A Two-Year Community Roadmap},
+  author={Ferreira da Silva, Rafael and Abolhasani, Milad and Beaucage, Peter and Biven, Laura and Bussmann, Michael and Chard, Kyle and Coffee, Ryan and DeWitt, Stephen and Dolas, Sagar and Eckert, Carrie and Elbert, David and Foster, Ian and Ghosal, Tirthankar and Giannakou, Anna and Gibbs, Tom and Hamilton, Leslie and Lockwood, Glenn and Mayer, Theresa and Mintz, Ben and Nazikian, Raffi and Nimer, Sal and Randles, Amanda and Shin, Woong and Sukumar, Sreenivas Rangan and Suter, Frederic and Taheri, Mitra and Taufer, Michela and Vrabie, Draguna},
+  year={2026},
+  eprint={2607.12113},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2607.12113}
+}

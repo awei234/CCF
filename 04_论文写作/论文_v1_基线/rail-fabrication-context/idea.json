@@ -1,0 +1,18 @@
+{
+  "title": "校验 Rail 对 LLM 科研 Agent 捏造率的抑制：上下文工程方向的受控实验",
+  "description": "以 research-pipeline skill 为实验台，把流程级校验 rail（F02 plan.json 校验 / F03 results.json 勾稽 / F04 引用核验）视为上下文工程的受控干预变量，在相同任务与种子下对比无 rail / 提示式 / 全量 rail / 单组件 rail，测量引用捏造率、数字捏造率与未执行声称率的因果变化，并消融「流程门控 vs 上下文劝导」两种机制。",
+  "motivation": "LLM 科研 Agent 的捏造已成为实证热点（2025 年约 14.7 万条幻觉引用、NeurIPS 2025 检出 53 篇），但现有工作集中在事后检测（CiteAudit/CiteTracer/HALLMARK）、架构提案（HALO/Theoria）或相关性测量（ProofAgent-Harness），缺少把验证契约当作流程级上下文工程干预、对捏造率做受控多种子因果实验的证据；且「纯提示能否抑制捏造」尚与「流程门控是否必要」未分离。",
+  "proposed_approach": "在固定 skill 工作流上只切换 rail 装配：F02 强制 plan.json 结构契约（实验≥3、baseline≥2、seed≥3、ablation 前置、budget），F03 强制结果勾稽（plan 声明的实验必须有 results.json，论文数字必须有出处），F04 强制引用契约（\\cite{} 必须命中 references 池且真实可核验）。定义可自动计算的捏造率指标族（CFR/NFR/UCR），用 ≥3 种子配对对比。为什么有效：验证契约把诚实从模型自愿属性变为系统强制属性，且 F03 与捏造率指标同构，测量即审计。",
+  "related_work": [
+    "Fouad Bousetouane (2026), AI Agents Do Not Fail Alone: The Context Fails First — 证明上下文质量预测幻觉抵抗力，但只做相关性不做干预",
+    "Patrik Reizinger & Wieland Brendel (2026), HALLMARK — 引用验证器基准，FPR 是部署瓶颈，仍属事后筛查",
+    "Bogdan Raduta et al. (2026), Zero Hallucination by Construction (HALO) — 六层防幻觉架构，缺受控实验",
+    "MZ Naser (2026), How LLMs Cite and Why It Matters — 捏造是提示诱导而非固有，纯提示基线值得测",
+    "Rana Muhammad Usman (2026), PhantomFill — 表单强制字段驱动捏造至 100%，支撑格式/契约会改变捏造行为",
+    "Kaiwen Shi et al. (2026), CiteAudit; Mingzhe Li et al. (2026), CiteTracer — 多智能体引用幻觉检测，事后验证",
+    "Michael Saldivar & Ben Slivinski (2026), Theoria — 可审计状态迁移验证，能抓引用捏造与前提走私，架构性强实验性弱"
+  ],
+  "hypothesis": "注入校验 rail（F02/F03/F04）比无 rail 基线显著降低科研任务捏造率（CFR/NFR/UCR，目标 Δ≥10pp、p<0.05、3 seeds 同向），且不显著损害任务完成度；抑制效果主要来自流程门控而非纯提示，弱模型与开放写作任务受益更大。",
+  "success_criteria": "证实：全量 rail 组三指标显著低于无 rail 基线且完成度不退化，全量≥单组件≥提示式≥无 rail 单调成立；证伪：rail 组与基线无显著差异、rail 组更高、或完成度恶化到不可用。",
+  "topic_mapping": "context"
+}

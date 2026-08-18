@@ -1,0 +1,5 @@
+title: Failure Modes of Large Language Models on Research-Level Mathematics: A Taxonomy and an Empirical Characterisation
+authors: Arnesh Banerjee, Ayushi Bhattacharjee
+venue: arXiv preprint arXiv:2606.24902
+year: 2026
+url: https://arxiv.org/abs/2606.24902

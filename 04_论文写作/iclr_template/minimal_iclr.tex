@@ -1,0 +1,45 @@
+% minimal_iclr.tex — self-made minimal ICLR-style template (detail_06 §1.3 fallback)
+% Visual approximation of ICLR: 10pt two-column, Times, booktabs tables, no vertical lines
+\documentclass[10pt,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{enumitem}
+\title{Paper Title}
+\author{CCF Team\\ Huawei openJiuwen Competition}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Abstract placeholder: 150--250 words, single paragraph. context $\rightarrow$ problem $\rightarrow$ method $\rightarrow$ key result $\rightarrow$ implication. No citations.
+\end{abstract}
+
+\section{Introduction}
+Background, gap, one-sentence approach, contributions list (itemize), roadmap.
+
+\section{Related Work}
+Funnel: broad $\rightarrow$ narrow, ending with positioning \emph{Unlike \ldots, our approach \ldots}.
+
+\section{Method}
+Reproducible: notation, algorithm description, overview figure.
+
+\section{Experiments}
+Setup, main results (booktabs tables), ablations, analysis.
+
+\section{Discussion / Limitations}
+Honest limitations; negative results are a plus.
+
+\section{Conclusion}
+No new results.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

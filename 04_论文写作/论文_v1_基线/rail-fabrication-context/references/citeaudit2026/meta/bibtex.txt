@@ -1,0 +1,8 @@
+@misc{shi2026citeaudit,
+  title={CiteAudit: You Cited It, But Did You Read It? A Benchmark for Verifying Scientific References in the LLM Era},
+  author={Shi, Kaiwen and Sun, Weixiang and Zhang, Zheyuan and Sun, Lichao and Chawla, Nitesh V. and Ye, Yanfang},
+  year={2026},
+  eprint={2602.23452},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2602.23452}
+}

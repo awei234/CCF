@@ -1,0 +1,5 @@
+title: LLM-Oriented Information Retrieval: A Denoising-First Perspective
+authors: Lu Dai, Liang Sun, Fanpu Cao, Ziyang Rao, Cehao Yang, Hao Liu, Hui Xiong
+venue: SIGIR 2026; arXiv preprint arXiv:2605.00505
+year: 2026
+url: https://arxiv.org/abs/2605.00505

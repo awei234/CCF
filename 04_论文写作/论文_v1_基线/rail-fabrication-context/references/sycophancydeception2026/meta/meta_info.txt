@@ -1,0 +1,5 @@
+title: From Sycophancy to Deception: A Unified Taxonomy for LLM Spontaneous Misalignment
+authors: Jerick Shi, Terry Jingcheng Zhang, Zhijing Jin, Vincent Conitzer
+venue: ICLR 2026 Agents in the Wild Workshop; arXiv preprint arXiv:2604.04788
+year: 2026
+url: https://arxiv.org/abs/2604.04788

@@ -1,0 +1,8 @@
+@misc{banerjee2026failuremodes,
+  title={Failure Modes of Large Language Models on Research-Level Mathematics: A Taxonomy and an Empirical Characterisation},
+  author={Banerjee, Arnesh and Bhattacharjee, Ayushi},
+  year={2026},
+  eprint={2606.24902},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2606.24902}
+}

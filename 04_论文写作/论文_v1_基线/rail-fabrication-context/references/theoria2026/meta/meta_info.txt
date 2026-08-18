@@ -1,0 +1,5 @@
+title: Theoria: Rewrite-Acceptability Verification over Informal Reasoning States
+authors: Michael Saldivar, Ben Slivinski
+venue: arXiv preprint arXiv:2607.01223
+year: 2026
+url: https://arxiv.org/abs/2607.01223

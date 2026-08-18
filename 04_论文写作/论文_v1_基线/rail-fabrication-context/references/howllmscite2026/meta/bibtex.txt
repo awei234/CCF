@@ -1,0 +1,8 @@
+@misc{naser2026howllmscite,
+  title={How LLMs Cite and Why It Matters: A Cross-Model Audit of Reference Fabrication in AI-Assisted Academic Writing and Methods to Detect Phantom Citations},
+  author={Naser, MZ},
+  year={2026},
+  eprint={2603.03299},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2603.03299}
+}

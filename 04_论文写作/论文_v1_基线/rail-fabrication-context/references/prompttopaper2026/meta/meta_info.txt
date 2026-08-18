@@ -1,0 +1,5 @@
+title: Prompt-to-Paper: Agentic AI System for Bioinformatics
+authors: Ramsha Kamran, Maheera Amjad, Zartasha Mustansar, Arsalan Shaukat, Salma Sherbaz, Muhammad U. S. Khan
+venue: arXiv preprint arXiv:2607.05456
+year: 2026
+url: https://arxiv.org/abs/2607.05456

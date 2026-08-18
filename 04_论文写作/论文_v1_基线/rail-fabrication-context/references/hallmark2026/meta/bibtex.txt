@@ -1,0 +1,8 @@
+@misc{reizinger2026hallmark,
+  title={HALLMARK: Diagnosing Three Failure Modes in LLM Citation Verifiers},
+  author={Reizinger, Patrik and Brendel, Wieland},
+  year={2026},
+  eprint={2607.18360},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2607.18360}
+}

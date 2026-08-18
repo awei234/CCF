@@ -1,0 +1,3 @@
+# Abstract
+
+Introduces a bilingual benchmark of 120 questions probing whether freely accessible LLMs fabricate article citations for the GDPR and the Saudi Personal Data Protection Law (PDPL), pairing direct citation retrieval with false-premise probes and deliberately unanswerable 'trap' questions. Evaluating three models finds a dramatic jurisdiction gap: near-ceiling citation accuracy on the GDPR (94-100%) against majority fabrication on the PDPL (60-77%); the highest fabrication rates (67%) arise from statute-vs-regulations confusion, and 91% of fabricated citations are asserted with confidence >= 0.8, indicating verbatim-verification safeguards rather than model self-confidence must gate institutional reliance.

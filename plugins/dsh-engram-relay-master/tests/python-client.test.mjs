@@ -1,0 +1,96 @@
+/**
+ * PythonEngramClient 降级测试：
+ * Python 缺失/服务不可用时应返回 null（插件降级为纯哈希路由），不抛异常。
+ */
+
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+
+// 用不存在的 python 路径强制启动失败
+test('client: failed spawn degrades to null', async () => {
+  const { PythonEngramClient } = await import('../lib/model/python-client.js')
+  const client = new PythonEngramClient('python-that-does-not-exist-xyz')
+  const status = await client.status()
+  assert.equal(status, null, '服务不可用时应返回 null')
+  client.stop()
+})
+
+test('client: missing server file degrades to null', async () => {
+  const { PythonEngramClient } = await import('../lib/model/python-client.js')
+  // 临时目录里没有 python/engram_model/server.py
+  const dir = mkdtempSync(join(tmpdir(), 'engram-no-server-'))
+  try {
+    const client = new PythonEngramClient('python', 'Qwen/Qwen3-0.6B')
+    // 直接改内部路径检查逻辑：不存在时 failed=true → null
+    const status = await client.status()
+    assert.equal(status, null)
+    client.stop()
+  } finally {
+    rmSync(dir, { recursive: true, force: true })
+  }
+})
+
+// ---- v3：0.6B 移除后，Python 服务 = 嵌入服务（bge 语义精排） ----
+
+// bge 目录经 ENGRAM_EMBED_MODEL 提供（真实服务测试用）；未配置时该组测试 skip
+const BGE_PATH = process.env.ENGRAM_EMBED_MODEL || ''
+
+/**
+ * 真实服务测试的环境探测：Python 可 spawn 且 engram server 能握手才跑。
+ * 无 Python/torch 环境的机器（如纯 TS ONNX embedder 部署）skip 而非 fail，
+ * 保留真实 bge 服务在完整环境下的验证价值。
+ */
+async function pythonServiceAvailable() {
+  try {
+    const { PythonEngramClient } = await import('../lib/model/python-client.js')
+    const probe = new PythonEngramClient('python', '')
+    try {
+      const status = await probe.status()
+      return status !== null
+    } finally {
+      probe.stop()
+    }
+  } catch {
+    return false
+  }
+}
+
+test('client: load with missing model dir degrades to loaded:false (no crash)', async (t) => {
+  const ok = await pythonServiceAvailable()
+  if (!ok) {
+    t.skip('Python 嵌入服务不可用（缺 python/torch 环境）——真实服务测试跳过')
+    return
+  }
+  const { PythonEngramClient } = await import('../lib/model/python-client.js')
+  const client = new PythonEngramClient('python', 'Qwen/Qwen3-0.6B')
+  const status = await client.load()
+  assert.ok(status !== null, '服务应存活（返回结果而非 null）')
+  assert.equal(status.loaded, false, '模型目录缺失 → loaded:false，不崩溃不联网')
+  client.stop()
+})
+
+test('client: embed op returns 512-dim vectors + query vec (bge 真实服务)', async (t) => {
+  const ok = await pythonServiceAvailable()
+  const bgeOk = await import('node:fs').then((fs) => fs.existsSync(BGE_PATH)).catch(() => false)
+  if (!ok || !bgeOk) {
+    t.skip(`Python 服务或 bge 模型不可用（python=${ok} bge=${bgeOk}）——真实嵌入测试跳过`)
+    return
+  }
+  const { PythonEngramClient } = await import('../lib/model/python-client.js')
+  const client = new PythonEngramClient('python', '', '', BGE_PATH)
+  const out = await client.embed(
+    ['缓存上线：缓存层全量生效', '数据上线：数据库切换完成'],
+    '缓存压测怎么样',
+  )
+  assert.ok(out !== null, 'embed 应成功')
+  assert.equal(out.vectors.length, 2, '每条文本一个向量')
+  assert.equal(out.vectors[0].length, 512, 'bge-small-zh 维度 512')
+  assert.ok(out.query_vec && out.query_vec.length === 512, 'query 向量')
+  const dot = (a, b) => a.reduce((s, v, i) => s + v * b[i], 0)
+  assert.ok(dot(out.vectors[0], out.query_vec) > dot(out.vectors[1], out.query_vec),
+    '缓存查询应语义更接近缓存节点')
+  client.stop()
+})

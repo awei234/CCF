@@ -1,0 +1,3 @@
+# Abstract
+
+Presents TRACE, an automated feedback loop that mines historical agent trajectories to diagnose and remediate context failures, treating implicit dissatisfaction signals (user corrections, rephrasing, abandonment cues) as evidence of context-source failures. Extends textual gradients from monolithic prompt optimization to heterogeneous context sources (skills, knowledge bases, tools, prompts), with exploratory verification distinguishing content gaps (CREATE) from stale content (UPDATE) at 96% operation accuracy. On 60 dissatisfaction traces achieves 72.7% root cause attribution and 82% end-to-end fix effectiveness.

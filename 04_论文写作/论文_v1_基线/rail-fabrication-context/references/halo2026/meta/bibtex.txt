@@ -1,0 +1,8 @@
+@misc{raduta2026halo,
+  title={Zero Hallucination, by Construction: Hallucination-Aware Layered Oversight for Trustworthy Enterprise AI},
+  author={Raduta, Bogdan and Velicu, Horia and Preda, Alexandru and Chiricescu, Serban},
+  year={2026},
+  eprint={2607.17883},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2607.17883}
+}

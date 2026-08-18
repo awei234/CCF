@@ -1,0 +1,42 @@
+===== SUMMARY =====
+The paper investigates whether process-level validation railsâexplicit, executable checks on plans, numbers, and citationsâreduce fabrication in LLM âresearch agents.â Using a controlled three-arm setup (no-rail, prompt-only, and full-rail with F02/F03/F04 gates) on two tasks and three fixed seeds, the authors define fabrication metrics (CFR, NFR, UCR) isomorphic to the gates and report near-zero fabrication across all conditions, with a single unsourced number under no-rail that both interventions eliminate. The study emphasizes paired-seed comparisons and measures the computational cost of rails.
+===== STRENGTHS =====
+- Technical novelty and innovation
+  - Treats âvalidation railsâ as the manipulated variable in a controlled experiment instead of proposing yet another detector or architecture.
+  - Formalizes CFR/NFR/UCR and makes them operationally isomorphic to executable gates (F02/F03/F04), unifying enforcement and measurement (âmeasurement is auditingâ).
+  - Uses a paired-seed design that holds tasks, model, and seeds constant across arms, allowing clean within-seed comparisons.
+
+- Experimental rigor and validation
+  - Transparent reporting: all results are drawn verbatim from results.json, with disclosures on data provenance and token-cost estimation.
+  - Same-seed paired analyses demonstrate non-positive differences for fabrication rates under interventions, avoiding seed-luck confounds.
+  - Sensitivity check on the numeric adjacency window finds invariance of NFR, suggesting stability of the metric to a key hyperparameter.
+
+- Clarity of presentation
+  - Clear articulation of the three arms, the gates, and the linkage from contracts to metrics.
+  - Well-structured methodology and explicit audit protocol delineating citation/number/claim extraction and verification.
+  - Limitations and floor effects are candidly acknowledged, along with cost trade-offs and data-credibility caveats.
+
+- Significance of contributions
+  - Establishes a simple, reproducible template for measuring process-level interventions with paired seeds and recorded rejection cycles.
+  - Provides initial evidence that even prompt-only persuasion may eliminate rare numeric fabrications on low-headroom tasks, while full rails add gating at a measurable cost.
+===== WEAKNESSES =====
+- Technical limitations or concerns
+  - The metrics are isomorphic to the enforcement gates, raising a circularity risk: systems that enforce the contract will, by construction, score well on the corresponding metric.
+  - Ambiguous network outcomes are excluded from the CFR numerator; without a corresponding coverage/uncertainty metric, CFR may be biased downward.
+  - Results.json is both execution artifact and evaluation source, with limited independent auditing; manual review for âmanualâ numbers introduces subjectivity without inter-rater checks.
+
+- Experimental gaps or methodological issues
+  - Severe floor effects: closed, pre-verified citation pool and forward-looking T1 suppress CFR and UCR headroom, making principal claims hinge on a single unsourced number in one seed.
+  - Extremely small scale: one model, two tasks, and three seeds; no statistical testing possible; partial reuse of reconstructed runs (no-rail T1) weakens internal validity.
+  - No ablation of individual gates (F02 vs F03 vs F04), despite being promised as future work; unclear which component provides value beyond prompt-only in low-headroom settings.
+  - Cost is reported in token estimates and iteration counts but not wall-clock time or billed tokens; full-rail token variance is structurally underestimated (template constraint).
+
+- Clarity or presentation issues
+  - The âis_number_claimâ and numeric classification heuristics lack full specification; potential for misclassification (IDs, list indices, artifact labels) is acknowledged but not quantitatively characterized.
+  - It is not entirely clear what âresults.jsonâ grounds for F03 in tasks without real experiment execution; the provenance for allowed numeric claims (design parameters vs cited vs derived) could be more formally defined.
+
+- Missing related work or comparisons
+  - Lacks head-to-head external baselines that also reduce fabrication (e.g., deterministic post-hoc revision as in clibib; multi-agent verifiers such as CiteAudit; graded verifiers like SemanticCite; lightweight citation checkers such as HalluCiteChecker).
+  - The connection to neurosymbolic gating frameworks (e.g., SafeGate) and claim-verification systems (e.g., AutoVerifier) is noted conceptually but not leveraged empirically to triangulate results or provide independent auditing.
+===== ASSESSMENT =====
+This paper offers a clear and reproducible framing of âvalidation railsâ as process-level contracts and provides a neat controlled setup with paired seeds. The methodological transparency and focus on auditable metrics are commendable. However, the current empirical evidence is too limited for a top-tier venue: the tasks and setup induce floor effects that suppress fabrication, the only observed gain is the removal of a single unsourced number, the evaluation scale is very small (two tasks, three seeds, one model), and the audit is not independent of enforcement. As a result, the main claimâcausal reduction of fabrication via railsâremains suggestive rather than compelling. I view this as a promising direction and an evaluative template worth building on, but I recommend substantial expansion: open citation pools with larger headroom, more seeds and models, independent verifiers or human audits to break the enforcementâmeasurement loop, and gate ablations. With these enhancements, the work could make a strong, practically relevant contribution.

@@ -1,0 +1,162 @@
+{
+  "experiment": "exp1-E1-no-rail",
+  "condition": "no-rail",
+  "description": "E1 对照组最小预实验：1 个代表性任务（生成含真实引用与数字的科研 proposal+plan）× 3 seeds，无 rail 装配",
+  "n_seeds": 3,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "model": "deepseek-v4-flash",
+  "metrics": {
+    "CFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "NFR": {
+      "mean": 0.0051,
+      "std": 0.0088,
+      "per_seed": [
+        0.0152,
+        0.0,
+        0.0
+      ]
+    },
+    "UCR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "task_success_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "per_seed": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "iterations": {
+      "mean": 1,
+      "std": 0.0,
+      "per_seed": [
+        1,
+        1,
+        1
+      ]
+    },
+    "tokens": {
+      "mean": 3277,
+      "std": 80.4674,
+      "per_seed": [
+        3267,
+        3202,
+        3362
+      ]
+    }
+  },
+  "per_seed_results": {
+    "seed42": {
+      "CFR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/8 (ambiguous 0)"
+      },
+      "NFR": {
+        "mean": 0.0152,
+        "std": 0.0,
+        "detail": "1/66"
+      },
+      "UCR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/0"
+      },
+      "task_success_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "iterations": {
+        "mean": 1,
+        "std": 0.0
+      },
+      "tokens": {
+        "mean": 3267,
+        "std": 0.0,
+        "unit": "estimate"
+      }
+    },
+    "seed43": {
+      "CFR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/9 (ambiguous 0)"
+      },
+      "NFR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/58"
+      },
+      "UCR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/0"
+      },
+      "task_success_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "iterations": {
+        "mean": 1,
+        "std": 0.0
+      },
+      "tokens": {
+        "mean": 3202,
+        "std": 0.0,
+        "unit": "estimate"
+      }
+    },
+    "seed44": {
+      "CFR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/12 (ambiguous 0)"
+      },
+      "NFR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/55"
+      },
+      "UCR": {
+        "mean": 0.0,
+        "std": 0.0,
+        "detail": "0/0"
+      },
+      "task_success_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "iterations": {
+        "mean": 1,
+        "std": 0.0
+      },
+      "tokens": {
+        "mean": 3362,
+        "std": 0.0,
+        "unit": "estimate"
+      }
+    }
+  },
+  "created_at": "2026-08-14T21:45:00+08:00",
+  "notes": "CFR=0（产物引用全部命中 references 池且 OpenAlex 核验通过）；NFR seed42 检出 1/66 个无出处数字（grounding sufficiency 7 维）；UCR=0（产物为 proposal+plan 计划文档，无执行声称）；完成度 1.0；迭代 1 轮；tokens 用 tiktoken cl100k_base 校准"
+}

@@ -1,0 +1,5 @@
+title: Toward Trustworthy Autonomous Science: A Two-Year Community Roadmap
+authors: Rafael Ferreira da Silva, Milad Abolhasani, Peter Beaucage, Laura Biven, Michael Bussmann, Kyle Chard, Ryan Coffee, Stephen DeWitt, Sagar Dolas, Carrie Eckert, David Elbert, Ian Foster, Tirthankar Ghosal, Anna Giannakou, Tom Gibbs, Leslie Hamilton, Glenn Lockwood, Theresa Mayer, Ben Mintz, Raffi Nazikian, Sal Nimer, Amanda Randles, Woong Shin, Sreenivas Rangan Sukumar, Frederic Suter, Mitra Taheri, Michela Taufer, Draguna Vrabie
+venue: arXiv preprint arXiv:2607.12113
+year: 2026
+url: https://arxiv.org/abs/2607.12113

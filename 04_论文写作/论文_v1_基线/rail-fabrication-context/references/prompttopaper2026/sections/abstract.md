@@ -1,0 +1,3 @@
+# Abstract
+
+A multi-agent framework for end-to-end automated manuscript generation addressing: (i) claims not deterministically grounded in verifiable literature, (ii) frequently fabricated rather than executed experimental results, and (iii) lack of standardized quality assessment. Uses deterministic RAG with section-aware relevance scoring and snowball citation expansion to ground every claim in a corpus of 60-100 papers, an autonomous coding agent that executes real computational biology experiments replacing synthetic outputs, and an eight-dimensional automated quality scorer with hallucination penalties. Validated on five bioinformatics case studies with zero out-of-range citations.

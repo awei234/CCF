@@ -1,0 +1,8 @@
+@misc{li2026citetracer,
+  title={Source or It Didn't Happen: A Multi-Agent Framework for Citation Hallucination Detection},
+  author={Li, Mingzhe and Lin, Zhiqiang and Ma, Shiqing},
+  year={2026},
+  eprint={2605.08583},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2605.08583}
+}

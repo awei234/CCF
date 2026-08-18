@@ -1,0 +1,12 @@
+# Core runtime (JiuwenSwarm / openJiuwen)
+openjiuwen==0.1.16
+jiuwenswarm==0.2.4b4
+
+# Experiment / audit utilities
+tiktoken>=0.5.0
+requests>=2.31
+PyYAML>=6.0
+pytest>=7.0
+
+# Optional SSH helper used by the provided scripts
+paramiko>=3.0

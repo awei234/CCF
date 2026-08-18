@@ -1,0 +1,5 @@
+title: LLM hallucinations in the wild: Large-scale evidence from non-existent citations
+authors: Zhenyue Zhao, Yihe Wang, Toby Stuart, Mathijs De Vaan, Paul Ginsparg, Yian Yin
+venue: arXiv preprint arXiv:2605.07723
+year: 2026
+url: https://arxiv.org/abs/2605.07723

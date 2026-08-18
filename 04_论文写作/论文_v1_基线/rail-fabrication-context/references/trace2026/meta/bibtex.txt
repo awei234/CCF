@@ -1,0 +1,8 @@
+@misc{zhao2026trace,
+  title={TRACE: TRajectory Attribution for Automated Context Engineering},
+  author={Zhao, Yikai and Misra, Pradeep Kumar and Pandey, Saurabh},
+  year={2026},
+  eprint={2608.09153},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2608.09153}
+}

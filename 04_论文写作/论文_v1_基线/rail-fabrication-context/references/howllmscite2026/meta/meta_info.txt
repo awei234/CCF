@@ -1,0 +1,5 @@
+title: How LLMs Cite and Why It Matters: A Cross-Model Audit of Reference Fabrication in AI-Assisted Academic Writing and Methods to Detect Phantom Citations
+authors: MZ Naser
+venue: arXiv preprint arXiv:2603.03299
+year: 2026
+url: https://arxiv.org/abs/2603.03299

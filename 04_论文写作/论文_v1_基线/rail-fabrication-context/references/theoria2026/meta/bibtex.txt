@@ -1,0 +1,8 @@
+@misc{saldivar2026theoria,
+  title={Theoria: Rewrite-Acceptability Verification over Informal Reasoning States},
+  author={Saldivar, Michael and Slivinski, Ben},
+  year={2026},
+  eprint={2607.01223},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2607.01223}
+}

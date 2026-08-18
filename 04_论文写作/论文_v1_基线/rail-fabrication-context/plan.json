@@ -1,0 +1,174 @@
+{
+  "title": "流程级校验 Rail 对 LLM 科研 Agent 捏造率的抑制：上下文工程方向的受控实验",
+  "hypothesis": "注入校验 rail（F02/F03/F04）比无 rail 基线显著降低科研任务的捏造率（CFR/NFR/UCR，目标 Δ≥10pp、配对检验 p<0.05、3 seeds 同向），且不显著损害任务完成度与成本效率；抑制效果主要来自流程门控而非纯提示；弱模型与开放写作任务受益更大。",
+  "reproducibility": {
+    "environment": "Python 3.12 + jiuwenswarm 0.2.4b4（research-pipeline skill v0.1.0，工作区 rail-fabrication-context）",
+    "dependencies": "openai>=1.30（模型 deepseek-v4-flash）；pydantic>=2（plan.json 结构校验）；requests（arXiv/OpenAlex 在线核验）；标准库 json/re",
+    "randomness": "固定同一批 seeds [42, 43, 44]，所有条件与 baseline 共用；temperature=0.3、max_tokens 固定；每个 (condition, seed, task) 的 seed 写入 experiments/<id>/config.json；评估任务只用于最终测量"
+  },
+  "experiments": [
+    {
+      "id": "exp1",
+      "type": "comparison",
+      "title": "主实验：no-rail vs prompt-only vs full-rail 三装配对比",
+      "description": "同一任务集与同一批种子下，仅切换 rail 装配（无校验 / 上下文提示 / F02+F03+F04 全量门控），测量 CFR/NFR/UCR 因果变化；验证 H1 主假设。",
+      "baselines": [
+        "no-rail（简单：无校验的原始 skill 流程）",
+        "prompt-only（强/新近：上下文注入禁止捏造指令）"
+      ],
+      "ablation": "前置注册：full-rail 拆解为 f02-only/f03-only/f04-only 单组件臂（exp2 六臂消融），分离流程门控与上下文劝导两种机制；本实验对比提示式 vs 门控式干预。",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "datasets": [
+        "railbench-plan-v1（12 个结构化规划任务；独立任务池，与其他实验不复用）"
+      ],
+      "metrics": [
+        "CFR",
+        "NFR",
+        "UCR",
+        "task_success_rate",
+        "iterations",
+        "tokens"
+      ],
+      "budget": {
+        "estimated_minutes": 432,
+        "wall_clock_minutes": 120,
+        "parallel": true,
+        "runs": "3 条件 × 3 seeds = 9 runs；每 run = 12 任务 × 4 min = 48 min"
+      },
+      "status": "partial",
+      "status_note": "v2 补跑完成（2026-08-15）：prompt-only/full-rail 臂 x T1(proposal+plan)/T2(开放写作) x 3 seeds，产物见 experiments/exp1/<arm>/<seed>/<task>/；no-rail 臂 T1 复用 E1（summary_E1 重建）、T2 补跑。完整 12 任务 x 3 条件对照属阶段 3，完成后转 completed",
+      "steps": [
+        "构建 railbench-plan-v1 任务池（12 个结构化规划任务：生成 proposal+plan，天然需要真实引用与数字）并固定任务划分",
+        "实现三类装配：no-rail（原始 skill 流程，E1 对照组）、prompt-only（上下文注入强防捏造指令，无校验执行）、full-rail（F02+F03+F04 含打回重做门控）",
+        "每装配 × 3 seeds 跑全部 12 任务，逐任务记录生成产物与验证结果",
+        "自动验证器计算 CFR/NFR/UCR（F03 同构：无 results.json 出处的数字标记、无结果的实验声称标记；F04 同构：引用须命中 references 池且可在线核验）",
+        "汇总 mean/std，同 seed 配对检验，输出对比表与箱线图"
+      ],
+      "success_criteria": "证实：full-rail 的 CFR/NFR/UCR 均显著低于 no-rail（配对检验 p<0.05、3 seeds 同向、Δ≥10pp）且完成度无显著下降；证伪：无显著差异、full-rail 更高、或完成度显著恶化到不可用。prompt-only 若接近 no-rail 则支持 H2 门控必要性。"
+    },
+    {
+      "id": "exp2",
+      "type": "ablation",
+      "title": "六装配臂消融：no-rail / prompt-only / f02-only / f03-only / f04-only / full-rail",
+      "description": "单组件 rail（仅 F02 / 仅 F03 / 仅 F04）与全量、纯提示、无 rail 对比；关键对照 prompt-only vs f02-only 同为上下文干预、差别在有无流程门控，分离门控与提示机制；验证 H2。",
+      "baselines": [
+        "no-rail（简单）",
+        "prompt-only（强）"
+      ],
+      "ablation": "前置注册（本实验即消融本体）：六臂同时声明，禁止事后按结果挑臂；f02-only/f03-only/f04-only 为消融组件。",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "datasets": [
+        "railbench-writing-v1（6 个开放写作任务；独立任务池，与其他实验不复用）"
+      ],
+      "metrics": [
+        "CFR",
+        "NFR",
+        "UCR",
+        "task_success_rate"
+      ],
+      "budget": {
+        "estimated_minutes": 540,
+        "wall_clock_minutes": 140,
+        "parallel": true,
+        "runs": "6 臂 × 3 seeds = 18 runs；每 run = 6 任务 × 5 min = 30 min"
+      },
+      "status": "planned",
+      "steps": [
+        "构建 railbench-writing-v1 任务池（6 个开放写作任务：生成含引用与数字的 paper 章节）",
+        "预注册 6 个装配臂（ablation 前置，不看完结果再补），跑 3 seeds × 6 任务",
+        "对比 full-rail vs 各单组件（f02-only/f03-only/f04-only）的 CFR/NFR/UCR，计算每个组件的边际贡献",
+        "关键对照：prompt-only vs f02-only（同为上下文干预、差别在有无流程门控）分离门控与提示机制",
+        "输出消融表与边际贡献排序"
+      ],
+      "success_criteria": "证实：捏造率按 full-rail ≤ f04-only/f03-only/f02-only ≤ prompt-only ≤ no-rail 单调；f02-only 与 prompt-only 拉开差距则证明流程门控必要；证伪：全量不优于单组件、或提示式已与全量相当（提示足够、门控非必要），如实记录为负结果。"
+    },
+    {
+      "id": "exp3",
+      "type": "scaling",
+      "title": "扩展：任务复杂度 × 模型能力的受益边界",
+      "description": "结构化/半开放/开放任务 × 弱/强模型两维扩展，检验 H3 边界假设（弱模型与开放写作受益更大）。",
+      "baselines": [
+        "no-rail（简单）",
+        "prompt-only（强）"
+      ],
+      "ablation": "前置注册：任务复杂度与模型能力两维消融，同种子同装配下逐维变化。",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "datasets": [
+        "railbench-mixed-v1（12 任务 = 4 结构化 + 4 半开放 + 4 开放；独立任务池，与其他实验不复用）"
+      ],
+      "metrics": [
+        "CFR",
+        "NFR",
+        "UCR",
+        "task_success_rate"
+      ],
+      "budget": {
+        "estimated_minutes": 540,
+        "wall_clock_minutes": 140,
+        "parallel": true,
+        "runs": "弱模型 3 条件 × 3 seeds = 9 runs；每 run = 12 任务 × 5 min = 60 min（强模型追加臂另计）"
+      },
+      "status": "planned",
+      "steps": [
+        "构建 railbench-mixed-v1 任务池（12 任务 = 4 结构化 + 4 半开放 + 4 开放，难度分层）",
+        "弱模型跑 no-rail / prompt-only / full-rail × 3 seeds × 12 任务",
+        "强模型可用时，同任务池补跑 full-rail 与 no-rail × 3 seeds",
+        "按复杂度级别分层计算 CFR/NFR/UCR 降幅，检验单调性与复杂度×rail 交互",
+        "输出降幅 vs 复杂度交互图"
+      ],
+      "success_criteria": "证实：开放级任务的 rail 降幅显著大于结构化级（H3），弱模型降幅 ≥ 强模型；证伪：降幅与复杂度/模型能力无关或反向。"
+    },
+    {
+      "id": "exp4",
+      "type": "analysis",
+      "title": "成本-质量分析：迭代轮数 / token vs 捏造率降幅",
+      "description": "量化 rail 的负面代价：迭代轮数与 token 成本换来的 CFR/NFR 降幅，计算 cost_per_pp（每降 1 个百分点所需额外 token）。",
+      "baselines": [
+        "no-rail（简单）",
+        "prompt-only（强）"
+      ],
+      "ablation": "前置注册：成本指标与捏造率指标同时收集，成本分析不改变任何装配。",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "datasets": [
+        "railbench-cost-v1（6 个短任务；独立任务池，与其他实验不复用）"
+      ],
+      "metrics": [
+        "iterations",
+        "tokens",
+        "cost_per_pp",
+        "CFR",
+        "NFR"
+      ],
+      "budget": {
+        "estimated_minutes": 162,
+        "wall_clock_minutes": 45,
+        "parallel": true,
+        "runs": "3 条件 × 3 seeds = 9 runs；每 run = 6 短任务 × 3 min = 18 min"
+      },
+      "status": "planned",
+      "steps": [
+        "构建 railbench-cost-v1 任务池（6 个短任务，设计为易触发捏造且迭代可数的场景）",
+        "三装配 × 3 seeds × 6 任务，逐 run 记录 iterations / tokens / 墙钟时间",
+        "与 exp1 的 CFR/NFR/UCR 降幅对齐，计算 cost_per_pp（每降 1 个百分点所需额外 token）",
+        "输出成本-降幅散点图与代价表，判定成本效率是否可接受"
+      ],
+      "success_criteria": "证实：全量 rail 的降幅以可接受的成本换取（cost_per_pp 有界、完成时间增幅 <50%）；证伪：成本随降幅失控增长（每 1pp 需 >2× 基线 token）则如实报告为负结果。"
+    }
+  ]
+}

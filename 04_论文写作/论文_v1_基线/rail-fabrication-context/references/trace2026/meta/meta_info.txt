@@ -1,0 +1,5 @@
+title: TRACE: TRajectory Attribution for Automated Context Engineering
+authors: Yikai Zhao, Pradeep Kumar Misra, Saurabh Pandey
+venue: arXiv preprint arXiv:2608.09153
+year: 2026
+url: https://arxiv.org/abs/2608.09153

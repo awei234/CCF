@@ -1,0 +1,6 @@
+paper: paper.pdf
+venue: ICLR
+email: 3514056593@qq.com
+time: 2026-08-16T23:58:00.000Z
+token: EgzmSKLn8r5EfJOdRzD6SFpy69Ttiyotjz-OMeYKAG4
+message: Paper uploaded successfully. You will receive an email when the review is ready.

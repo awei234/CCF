@@ -1,0 +1,19 @@
+===== WEAKNESSES =====
+- Technical limitations or concerns
+  - Severe floor effects on CFR/UCR due to a pre-verified citation pool and prospective documents compress observable differences; the single observed defect (1/66) limits inference.
+  - The “never-false-kill” semantics and rate-limit handling for CFR (ambiguous excluded from numerator) could bias CFR toward zero under verification outages.
+  - NFR relies partly on human review of a “manual” bucket; limited information on inter-rater reliability and potential bias undermines full automation claims.
+  - The independent audit uses the same model family as the generator, risking correlated blind spots; “causal” conclusions are weak given confounds and tiny N.
+- Experimental gaps or methodological issues
+  - No ablation of individual rails (F02 vs. F03 vs. F04); the study cannot attribute which gate matters most (the paper lists this as future work).
+  - No cross-model validation, few seeds (3), small number of tasks, and no adversarially high-fabrication settings; this constrains statistical and external validity.
+  - The no-rail T1 primary control is a reconstructed snapshot; the reproduction had workspace visibility to v2 artifacts, potentially contaminating the control.
+  - Open-pool task still imposes skill-level constraints (verify-before-cite, source annotations), making the baseline disciplined and reducing headroom.
+- Clarity or presentation issues
+  - Some anomalous numbers (e.g., identical tokens across full-rail T1 seeds; NFR denominators vary widely across arms) deserve fuller explanation.
+  - “deepseek-v4-flash” is used without a baseline on public, well-known models; decoding settings and their effect on fabrication are only briefly noted.
+- Missing related work or comparisons
+  - Limited engagement with broader 2023–2025 literature on hallucination mitigation, retrieval augmentation, and process-aware verification beyond the 2026-cited works.
+  - The study could be more explicitly compared to verification-integrated planning (e.g., VERIMAP), provenance/accountability standards (AAR), and process-aware evaluation (MiroEval); the current comparisons remain mostly conceptual rather than empirical.
+===== ASSESSMENT =====
+This paper tackles an important and underexplored question—whether process-level validation rails prevent fabrication in LLM research agents—and offers a clean, reproducible experimental scaffold with metric–gate isomorphism, paired seeds, and explicit cost measurements. The execution is careful and transparent, and the auditing-as-measurement principle is compelling. However, the evaluation settings exhibit strong floor effects and extremely limited headroom, leading to largely null findings on CFR and UCR and a single NFR defect that the interventions remove. As a result, the evidence for a causal benefit is modest and not generalizable. Critical gaps include the absence of per-rail ablations, restricted task/model diversity, reliance on a reconstructed control for a key arm, and no strong detector or verification-aware planning baselines. While I view the paper as a useful blueprint and a constructive step toward process-level evaluation, its current empirical strength and generality fall short of ICLR standards. With broader, higher-headroom tasks, per-rail ablations, cross-model validation, and stronger baselines, this work could become a valuable contribution.

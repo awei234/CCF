@@ -1,0 +1,33 @@
+# Prototype - JiuwenSwarm Research Agent configuration
+# Modify paths according to your deployment.
+
+model:
+  provider: deepseek-official
+  name: deepseek-v4-flash
+  endpoint: https://api.deepseek.com
+  temperature: 0.3
+  max_tokens: 4096
+
+runtime:
+  jiuwenswarm_bin: /home/vergil/CCF/.venv/bin/jiuwenswarm
+  workspace: /home/vergil/.jiuwenswarm/agent/workspace
+  experiment_script: /data/vergil-CCF/scripts/run_v5_experiments.sh
+
+rails:
+  experiment_planning_rail:
+    enabled: true
+    class_name: ExperimentPlanningRail
+    priority: 50
+  result_consistency_rail:
+    enabled: true
+    class_name: ResultConsistencyRail
+    priority: 45
+  citation_verification_rail:
+    enabled: true
+    class_name: CitationVerificationRail
+    priority: 40
+
+skill:
+  name: research-pipeline
+  version: 0.1.0
+  workspace_root: "~/.jiuwenswarm/agent/workspace"

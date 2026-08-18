@@ -1,0 +1,5 @@
+title: Zero Hallucination, by Construction: Hallucination-Aware Layered Oversight for Trustworthy Enterprise AI
+authors: Bogdan Raduta, Horia Velicu, Alexandru Preda, Serban Chiricescu
+venue: arXiv preprint arXiv:2607.17883
+year: 2026
+url: https://arxiv.org/abs/2607.17883

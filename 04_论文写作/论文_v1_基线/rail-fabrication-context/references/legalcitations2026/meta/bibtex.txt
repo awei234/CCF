@@ -1,0 +1,8 @@
+@misc{alrajeh2026legalcitations,
+  title={Do LLMs Fabricate Legal Citations? A Bilingual Benchmark on Saudi Data Protection Law and the GDPR},
+  author={Alrajeh, Noura Suliman},
+  year={2026},
+  eprint={2607.11127},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2607.11127}
+}

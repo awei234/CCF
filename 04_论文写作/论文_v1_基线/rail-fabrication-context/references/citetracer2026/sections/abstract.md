@@ -1,0 +1,3 @@
+# Abstract
+
+Reframes citation hallucination detection as taxonomy-aligned field-level adjudication with a 12-code taxonomy spanning Real, Potential and Hallucinated citations. CiteTracer is a cascading multi-agent detector that extracts structured citations from PDF and BibTeX, retrieves evidence through cache lookup, URL fetch, scholar connectors and web search, applies deterministic field matching, and routes ambiguous cases to class-specialist judgers. Reaches 97.1% accuracy on a synthetic benchmark of 2,450 citations and detects 97.1% of fabrications on 957 real-world fabricated citations from ICLR 2026 and desk-rejected submissions.

@@ -1,0 +1,8 @@
+@misc{shi2026sycophancy,
+  title={From Sycophancy to Deception: A Unified Taxonomy for LLM Spontaneous Misalignment},
+  author={Shi, Jerick and Zhang, Terry Jingcheng and Jin, Zhijing and Conitzer, Vincent},
+  year={2026},
+  eprint={2604.04788},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2604.04788}
+}

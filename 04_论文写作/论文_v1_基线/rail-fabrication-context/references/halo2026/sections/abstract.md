@@ -1,0 +1,3 @@
+# Abstract
+
+Argues 'zero hallucination' is not a property a model possesses but a property a system enforces. HALO (Hallucination-Aware Layered Oversight) composes six layers of defense: grounded generation over retrieved/approved content, constrained deterministic execution, multi-signal verification (LLM judge + evidence-based checks against source), calibrated abstention, total traceability, and continuous oversight. Emphasizes evidence-based confidence that verifies extractions against source documents rather than trusting model self-reported certainty, illustrated on a regulated claims-extraction workload.

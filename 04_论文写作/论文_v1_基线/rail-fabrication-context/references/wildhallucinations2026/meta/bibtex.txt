@@ -1,0 +1,8 @@
+@misc{zhao2026wildhallucinations,
+  title={LLM hallucinations in the wild: Large-scale evidence from non-existent citations},
+  author={Zhao, Zhenyue and Wang, Yihe and Stuart, Toby and De Vaan, Mathijs and Ginsparg, Paul and Yin, Yian},
+  year={2026},
+  eprint={2605.07723},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2605.07723}
+}

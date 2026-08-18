@@ -1,0 +1,8 @@
+@misc{usman2026phantomfill,
+  title={PhantomFill: When the Form Demands an Answer, Language Models Invent One},
+  author={Usman, Rana Muhammad},
+  year={2026},
+  eprint={2607.20492},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2607.20492}
+}

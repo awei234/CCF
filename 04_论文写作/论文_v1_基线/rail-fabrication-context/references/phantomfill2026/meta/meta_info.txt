@@ -1,0 +1,5 @@
+title: PhantomFill: When the Form Demands an Answer, Language Models Invent One
+authors: Rana Muhammad Usman
+venue: arXiv preprint arXiv:2607.20492
+year: 2026
+url: https://arxiv.org/abs/2607.20492
