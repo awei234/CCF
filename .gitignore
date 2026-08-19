@@ -13,6 +13,10 @@ __pycache__/
 .venv/
 venv/
 
+# Local JiuwenSwarm runtime data, logs, and model configuration
+.jiuwenswarm-home/
+.jiuwenswarm-runtime/
+
 # Isolated local development worktrees
 .worktrees/
 
