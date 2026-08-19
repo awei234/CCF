@@ -13,5 +13,8 @@ __pycache__/
 .venv/
 venv/
 
+# Isolated local development worktrees
+.worktrees/
+
 # Large local server snapshot; not required for source reproducibility
 _share/CCF_server_2026-08-17.tar.gz
