@@ -1,0 +1,28 @@
+{
+  "release_kind": "reproducibility-closure",
+  "source_base_commit": "f856b454f1163ffea41de19567457c0dc0b3f3d6",
+  "framework": {
+    "jiuwenswarm": "0.2.4b4",
+    "openjiuwen": "0.1.16",
+    "framework_contribution": "https://gitcode.com/openJiuwen/jiuwenswarm/merge_requests/4909"
+  },
+  "demo": {
+    "purpose": "Offline engineering demonstration only; not v6/v7 experiment evidence.",
+    "files": {
+      "code/demo/manifest.json": "799e5472fa89caf1ca024a5bb5ce2ef0080d24ce1565b2f938390982212aca21",
+      "code/demo/plan.json": "058a62133fb7b14395cc49b8f6c3d7a337870095405056f5dddd4fee15cb1b3a",
+      "code/demo/experiments/exp1/results.json": "97df5c38de162c3d616b5d149bcf360206a9514ab98a6fb80efafdd569848342",
+      "code/demo/paper/paper.tex": "f871b90602d4a56835189622580e3666e818fa529d22e9f9269a03bac4e2a7e2",
+      "code/demo/references/references_index.json": "20a4c85d01a42dcf69d5c4b12c4cc586b9447246c1a4c275beca3c3263286e18"
+    }
+  },
+  "verification": {
+    "offline_check": "python code/bootstrap.py --check --demo-audit --output /tmp/demo-audit.json",
+    "unit_tests": "python -m unittest discover -s code/tests -p 'test_*.py'"
+  },
+  "known_limitations": [
+    "The demo validates package layout and offline data consistency; it does not execute a model or a JiuwenSwarm server.",
+    "Real v6/v7 plan.json, seed-level results.json, and audit logs must be imported before claims are recomputed.",
+    "Historical API-key exposure remains unresolved by user decision and must be remediated before any public release."
+  ]
+}

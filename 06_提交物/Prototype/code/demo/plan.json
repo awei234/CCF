@@ -1,0 +1,17 @@
+{
+  "reproducibility": {
+    "environment": "offline demo",
+    "seeds": [42, 43, 44]
+  },
+  "experiments": [
+    {
+      "id": "exp1",
+      "type": "comparison",
+      "baselines": ["no-rail", "prompt-only"],
+      "ablation": "F02/F03/F04 demo coverage",
+      "seeds": [42, 43, 44],
+      "datasets": ["demo-fixture"],
+      "budget": {"tokens_est": 100}
+    }
+  ]
+}

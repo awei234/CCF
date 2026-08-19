@@ -1,0 +1,9 @@
+{
+  "metrics": {
+    "accuracy": {
+      "mean": 87.3,
+      "unit": "percent"
+    }
+  },
+  "source": "demo fixture; not a model run"
+}

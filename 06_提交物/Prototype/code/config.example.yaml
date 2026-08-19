@@ -1,6 +1,4 @@
-# Prototype local configuration template.
-# Copy config.example.yaml if you need a clean starting point; never commit real API keys.
-
+# Copy to config.yaml and set only local runtime paths or environment variables.
 model:
   provider: openai-compatible
   name: ${MODEL_NAME}
@@ -20,4 +18,3 @@ rails:
 skill:
   name: research-pipeline
   version: 0.1.0
-  workspace_root: "~/.jiuwenswarm/agent/workspace"
