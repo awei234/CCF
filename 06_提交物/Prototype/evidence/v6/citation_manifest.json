@@ -1,0 +1,109 @@
+{
+  "citations": {
+    "zhao2026wildhallucinations": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "naser2026howllmscite": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "alrajeh2026legalcitations": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "shi2026citeaudit": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "li2026citetracer": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "reizinger2026hallmark": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "banerjee2026failuremodes": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "raduta2026halo": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "saldivar2026theoria": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "kamran2026prompttopaper": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "usman2026phantomfill": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "bousetouane2026context": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "zhao2026trace": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "rafieioskooei2026deepagentic": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "ghostcite2026": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "papertrail2026": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "kaiju2026": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "rlam2026": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "dai2026llmorir": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "shi2026sycophancy": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    },
+    "ferreiradasilva2026trustworthy": {
+      "status": "pending",
+      "source": null,
+      "checked_at": null
+    }
+  }
+}

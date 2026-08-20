@@ -16,13 +16,22 @@
       "code/demo/references/references_index.json": "20a4c85d01a42dcf69d5c4b12c4cc586b9447246c1a4c275beca3c3263286e18"
     }
   },
+  "v6_evidence": {
+    "release_id": "v6-sar-5.8",
+    "status": "collection-incomplete",
+    "root": "evidence/v6",
+    "gate": "python code/release_gate.py --root evidence/v6 --output evidence/v6/release_gate_report.json",
+    "scope": "Existing T1/T2 result files were copied from the local experiment workspace. T3 raw results, claim mappings, and independently verified citation records are not yet available.",
+    "v7_policy": "V7 scripts may be retained as future assets but are excluded from V6 evidence, claims, and conclusions."
+  },
   "verification": {
     "offline_check": "python code/bootstrap.py --check --demo-audit --output /tmp/demo-audit.json",
-    "unit_tests": "python -m unittest discover -s code/tests -p 'test_*.py'"
+    "unit_tests": "python -m unittest discover -s code/tests -p 'test_*.py'",
+    "release_gate": "python code/release_gate.py --root evidence/v6 --output evidence/v6/release_gate_report.json"
   },
   "known_limitations": [
     "The demo validates package layout and offline data consistency; it does not execute a model or a JiuwenSwarm server.",
-    "Real v6/v7 plan.json, seed-level results.json, and audit logs must be imported before claims are recomputed.",
+    "The V6 evidence collection is intentionally incomplete and the release gate must remain non-zero until raw T3 artifacts, claim mappings, and citation verification records are supplied.",
     "Historical API-key exposure remains unresolved by user decision and must be remediated before any public release."
   ]
 }

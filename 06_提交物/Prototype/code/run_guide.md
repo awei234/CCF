@@ -62,7 +62,24 @@ python main.py --stage skill
 python main.py --stage experiment
 ```
 
-## 7. 生成论文与提交 SAR
+## 7. V6 证据收集与发布 Gate
+
+V6 真实运行证据与离线 demo 严格分开。下列命令只会从指定源复制已有
+`results.json`，并将缺少的声明映射或引用核验显式标记为 pending：
+
+```bash
+python freeze_v6_evidence.py \
+  --source /path/to/exp1 \
+  --paper /path/to/paper_v6/paper.tex \
+  --target ../evidence/v6 \
+  --release-id v6-sar-5.8
+python release_gate.py --root ../evidence/v6 --output ../evidence/v6/release_gate_report.json
+```
+
+只有 Gate 返回 `0` 才能将证据清单标记为 `ready` 并生成最终发布清单。当前随包
+V6 目录是收集状态，不代表已完成冻结；V7 脚本仅可作为未执行的未来实验资产保留。
+
+## 8. 生成论文与提交 SAR
 
 - 使用 `code/custom_skills/research-pipeline/` 的 Writing 阶段生成 `paper/paper.tex`；
 - 编译为 PDF：`pdflatex paper.tex`；

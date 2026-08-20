@@ -1,0 +1,55 @@
+{
+  "experiment": "exp1-full-rail-seed43-task1",
+  "condition": "full-rail",
+  "seed": 43,
+  "task": "T1",
+  "metrics": {
+    "CFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/17 (ambiguous 0)"
+    },
+    "NFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/297"
+    },
+    "UCR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/0"
+    },
+    "task_success_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "detail": "1.0"
+    },
+    "iterations": {
+      "mean": 1,
+      "std": 0.0,
+      "detail": "1 (无 rail 打回)"
+    },
+    "tokens": {
+      "mean": 6563,
+      "std": 0.0,
+      "unit": "estimate"
+    }
+  },
+  "rail_rejection_rounds": 0,
+  "artifact_files": [
+    "proposal.md",
+    "plan.md",
+    "plan.json",
+    "config.json"
+  ],
+  "config": {
+    "seed": 43,
+    "model": "deepseek-v4-flash",
+    "dataset": "railbench-plan-v1（T1 结构化规划任务；独立任务池）",
+    "arm": "full-rail",
+    "task": "T1"
+  },
+  "runtime_minutes": 14,
+  "notes": "exp1 full-rail 臂 seed43 T1。plan.json 首写即满足 F02（experiments≥3、每实验 baselines≥2/ablation/seeds≥3/datasets 列表/budget、主实验 comparison、顶层 reproducibility、status=planned），0 轮 rail 打回。引用核验通道=citation_checker.py --pool references（arXiv+OpenAlex 双通道，17/17 verified，CFR=0/17）；NFR=0/297（数字全部来自 references 池文献摘要报告值或 plan 设计参数，numbers_audit.json 逐条标注 has_source=true）；UCR=0/0（产物为 proposal+plan 计划文档，无执行声称，claims_audit.json 为空）；完成度 1.0。tokens 用 tiktoken cl100k_base 校准（产物 proposal+plan≈5363 + prompt≈1200）",
+  "created_at": "2026-08-15T08:21:00+08:00"
+}

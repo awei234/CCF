@@ -1,0 +1,48 @@
+{
+  "experiment": "exp1-prompt-only-seed42",
+  "condition": "prompt-only",
+  "seed": 42,
+  "metrics": {
+    "CFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/15 (ambiguous 0)"
+    },
+    "NFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/99"
+    },
+    "UCR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/0"
+    },
+    "task_success_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "iterations": {
+      "mean": 1,
+      "std": 0.0
+    },
+    "tokens": {
+      "mean": 3480,
+      "std": 0.0,
+      "unit": "estimate"
+    }
+  },
+  "artifact_files": [
+    "proposal.md",
+    "plan.md"
+  ],
+  "config": {
+    "seed": 42,
+    "model": "deepseek-v4-flash",
+    "dataset": "railbench-plan-v1（T1 结构化规划任务；独立任务池）",
+    "arm": "prompt-only"
+  },
+  "runtime_minutes": 14,
+  "notes": "exp1 prompt-only 臂；唯一防捏造机制=上下文指令（无系统校验）；引用核验通道=arXiv(+OpenAlex 标题兜底)；NFR/UCR 为规则+人工复核审计",
+  "created_at": "2026-08-15T07:37:00+08:00"
+}
