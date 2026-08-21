@@ -1,0 +1,8 @@
+{
+  "rah_runtime_rail": {
+    "enabled": true,
+    "class_name": "RahRuntimeRail",
+    "priority": 60,
+    "description": "Auditable RAH lifecycle event rail"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "run_id": "smoke-content_flagging-000-rah_full-r1",
+  "task_id": "content_flagging:000",
+  "assembly": "rah_full",
+  "model": "deepseek-v4-flash",
+  "terminal_status": "failed",
+  "trace": [
+    {
+      "phase": "error",
+      "error_type": "AuthenticationError"
+    }
+  ],
+  "output": "",
+  "tool_calls": [],
+  "latency_seconds": 1.7491348999901675,
+  "failure_reason": "provider AuthenticationError"
+}
