@@ -1,0 +1,50 @@
+{
+  "experiment": "exp1-seed44-T2-full-rail",
+  "condition": "full-rail",
+  "seed": 44,
+  "task": "T2",
+  "metrics": {
+    "CFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/17 (ambiguous 0)"
+    },
+    "NFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/153"
+    },
+    "UCR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/1"
+    },
+    "task_success_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "iterations": {
+      "mean": 4,
+      "std": 0.0
+    },
+    "tokens": {
+      "mean": 5300,
+      "std": 0.0,
+      "unit": "estimate"
+    }
+  },
+  "artifact_files": [
+    "intro_relatedwork.md",
+    "config.json"
+  ],
+  "config": {
+    "seed": 44,
+    "model": "deepseek-v4-flash",
+    "task": "T2",
+    "arm": "full-rail",
+    "dataset": "railbench-writing-v1（T2 开放写作任务；独立任务池）"
+  },
+  "runtime_minutes": 3,
+  "notes": "prompt-only T2 开放写作（Introduction+Related Work）；CFR 以 references 池在线核验为准（citation_checker --pool references）；NFR/UCR 为写作时自觉保证出处+审计标注",
+  "created_at": "2026-08-15T08:18:00+08:00"
+}

@@ -1,0 +1,20 @@
+# Copy to config.yaml and set only local runtime paths or environment variables.
+model:
+  provider: openai-compatible
+  name: ${MODEL_NAME}
+  endpoint: ${MODEL_ENDPOINT}
+  api_key: ${MODEL_API_KEY}
+  temperature: 0.3
+  max_tokens: 4096
+
+runtime:
+  jiuwenswarm_bin: jiuwenswarm
+  workspace: ~/.jiuwenswarm/agent/workspace
+  experiment_script: ""
+
+rails:
+  extensions_config: extensions_config.json
+
+skill:
+  name: research-pipeline
+  version: 0.1.0

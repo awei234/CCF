@@ -1,0 +1,17 @@
+{
+  "experiment_planning_rail": {
+    "enabled": true,
+    "class_name": "ExperimentPlanningRail",
+    "priority": 50
+  },
+  "result_consistency_rail": {
+    "enabled": true,
+    "class_name": "ResultConsistencyRail",
+    "priority": 45
+  },
+  "citation_verification_rail": {
+    "enabled": true,
+    "class_name": "CitationVerificationRail",
+    "priority": 40
+  }
+}

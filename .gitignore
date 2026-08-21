@@ -13,5 +13,12 @@ __pycache__/
 .venv/
 venv/
 
+# Local JiuwenSwarm runtime data, logs, and model configuration
+.jiuwenswarm-home/
+.jiuwenswarm-runtime/
+
+# Isolated local development worktrees
+.worktrees/
+
 # Large local server snapshot; not required for source reproducibility
 _share/CCF_server_2026-08-17.tar.gz

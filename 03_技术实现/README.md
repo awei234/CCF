@@ -1,7 +1,7 @@
 # 03_技术实现
 
 > 本目录是参赛系统的开发基地：源码副本 + 自定义 skill + 自定义 rail + 提示词。
-> 更新日期：2026-08-11
+> 更新日期：2026-08-19
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 03_技术实现/
 ├── jiuwenswarm/          # JiuwenSwarm 官方源码副本（0.2.4.beta4，含 .git 历史，348MB）
-│   └── ...               # 修改源码就在这里改（可提 PR）
+│   └── ...               # 当前源码快照；版本信息见 Prototype 的 RELEASE_MANIFEST
 ├── custom_skills/        # 自研科研 skill（流水线提示词 + 脚本）
 ├── custom_rails/         # 自研 rail 开发目录（开发完移植进 jiuwenswarm 源码注册）
 ├── prompts/              # 四阶段提示词（FARS 附录 B 提取/改编）
@@ -22,9 +22,10 @@
 
 ## 1. 源码副本说明
 
-- **来源**：`C:\Users\vergil\.zcode\workspace\default\jiuwenswarm`（官方 git clone）
-- **版本**：0.2.4.beta4
-- **含 .git 历史**：可基于 develop 分支工作、本地 commit、最终整理成 PR
+- **版本基线**：JiuwenSwarm 0.2.4b4 / openJiuwen 0.1.16；工作区冻结 commit 由
+  `06_提交物/Prototype/RELEASE_MANIFEST.json` 记录。
+- **框架贡献**：PR #4909 仍待合并；不得假定公开 `pip install jiuwenswarm==0.2.4b4`
+  自动包含自定义 Rail 装配改动。
 - **关键路径**：
   - rail 实现范式：`jiuwenswarm/agents/harness/code/rails/*.py`
   - rail 注册：`jiuwenswarm/agents/swarm/providers/*.py`
@@ -107,14 +108,14 @@ model:
 
 ---
 
-## 4. 计划中的组件（对方向库的落点）
+## 4. 组件状态（对方向库的落点）
 
 | 组件 | 落点 | 方向 |
 |---|---|---|
 | 科研 skill（四阶段流水线）| `custom_skills/research-pipeline/` | D01 |
-| plan.json 协议 + 校验 rail | `custom_rails/experiment_planning_rail.py` | F02 |
-| 结果一致性校验 rail | `custom_rails/result_consistency_rail.py` | F03 |
-| 引用核验 rail + 工具 | `custom_rails/citation_verification_rail.py` + `tools/` | F04 |
+| plan.json 协议 + 校验 rail | `custom_rails/experiment_planning_rail/` | F02（已实现，hard block） |
+| 结果一致性校验 rail | `custom_rails/result_consistency_rail/` | F03（已实现，detect-and-repair） |
+| 引用核验 rail + 工具 | `custom_rails/citation_verification_rail/` + `tools/` | F04（已实现，detect-and-repair） |
 | 写作质量 rail + 指标脚本 | `custom_rails/writing_quality_rail.py` + `tools/paper_metrics.py` | F01 |
 | 图表生成工具 | `tools/figure_generator.py` / `table_generator.py` | F07 |
 | 资源日志工具 | `tools/resource_logger.py` | F06 |

@@ -17,7 +17,10 @@ import argparse
 import os
 import subprocess
 import sys
+from pathlib import Path
 import yaml
+
+from bootstrap import audit_demo_workspace
 
 
 def load_config(path="config.yaml"):
@@ -56,13 +59,20 @@ def run_experiment(cfg):
         print("[run] executing", script)
         return subprocess.call(["bash", script])
     print("[run] no experiment script configured; see run_guide.md")
-    return 0
+    return 2
+
+
+def run_demo_audit(demo_root, output=None):
+    report = audit_demo_workspace(Path(demo_root), Path(output) if output else None)
+    print("[demo-audit]", report)
+    return 0 if report["ok"] else 1
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="config.yaml")
-    ap.add_argument("--stage", choices=["skill", "experiment", "check"], default="check")
+    ap.add_argument("--config", default=str(Path(__file__).with_name("config.yaml")))
+    ap.add_argument("--stage", choices=["skill", "experiment", "check", "demo-audit"], default="check")
+    ap.add_argument("--audit-output", default=None)
     args = ap.parse_args()
 
     cfg = load_config(args.config)
@@ -72,6 +82,9 @@ def main():
         sys.exit(run_skill(cfg))
     elif args.stage == "experiment":
         sys.exit(run_experiment(cfg))
+    elif args.stage == "demo-audit":
+        output = args.audit_output or "artifacts/demo-audit.json"
+        sys.exit(run_demo_audit(os.path.join(os.path.dirname(__file__), "demo"), output))
 
 
 if __name__ == "__main__":

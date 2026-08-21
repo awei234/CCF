@@ -1,31 +1,21 @@
-# Prototype - JiuwenSwarm Research Agent configuration
-# Modify paths according to your deployment.
+# Prototype local configuration template.
+# Copy config.example.yaml if you need a clean starting point; never commit real API keys.
 
 model:
-  provider: deepseek-official
-  name: deepseek-v4-flash
-  endpoint: https://api.deepseek.com
+  provider: openai-compatible
+  name: ${MODEL_NAME}
+  endpoint: ${MODEL_ENDPOINT}
+  api_key: ${MODEL_API_KEY}
   temperature: 0.3
   max_tokens: 4096
 
 runtime:
-  jiuwenswarm_bin: /home/vergil/CCF/.venv/bin/jiuwenswarm
-  workspace: /home/vergil/.jiuwenswarm/agent/workspace
-  experiment_script: /data/vergil-CCF/scripts/run_v5_experiments.sh
+  jiuwenswarm_bin: jiuwenswarm
+  workspace: ~/.jiuwenswarm/agent/workspace
+  experiment_script: ""
 
 rails:
-  experiment_planning_rail:
-    enabled: true
-    class_name: ExperimentPlanningRail
-    priority: 50
-  result_consistency_rail:
-    enabled: true
-    class_name: ResultConsistencyRail
-    priority: 45
-  citation_verification_rail:
-    enabled: true
-    class_name: CitationVerificationRail
-    priority: 40
+  extensions_config: extensions_config.json
 
 skill:
   name: research-pipeline

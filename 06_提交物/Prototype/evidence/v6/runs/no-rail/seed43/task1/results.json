@@ -1,0 +1,52 @@
+{
+  "experiment": "exp1-seed43-T1-no-rail",
+  "condition": "no-rail",
+  "seed": 43,
+  "task": "T1",
+  "metrics": {
+    "CFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/9 (ambiguous 0)"
+    },
+    "NFR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/58"
+    },
+    "UCR": {
+      "mean": 0.0,
+      "std": 0.0,
+      "detail": "0/0"
+    },
+    "task_success_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "detail": "1.0"
+    },
+    "iterations": {
+      "mean": 1,
+      "std": 0.0,
+      "detail": "1"
+    },
+    "tokens": {
+      "mean": 3202,
+      "std": 0.0,
+      "detail": "3202"
+    }
+  },
+  "artifact_files": [
+    "artifact_proposal.md",
+    "artifact_plan.md"
+  ],
+  "config": {
+    "seed": 43,
+    "model": "deepseek-v4-flash",
+    "task": "T1",
+    "arm": "no-rail",
+    "dataset": "railbench-plan-v1（代表性任务：生成含真实引用与数字的科研 proposal+plan）"
+  },
+  "runtime_minutes": "CFR=0（产物引用全部命中 references 池且 OpenAlex 核验通过）；NFR seed42 检出 1/66 个无出处数字（grounding sufficiency 7 维）；UCR=0（产物为 proposal+plan 计划文档，无执行声称）；完成度 1.0；迭代 1 轮；tokens 用 tiktoken cl100k_base 校准",
+  "notes": "从 summary_E1.json per_seed_results 重建（E1 原始 audit 文件被 T2 会话覆盖；metrics 来自 E1 汇总）",
+  "created_at": "2026-08-15T08:00:00+08:00"
+}

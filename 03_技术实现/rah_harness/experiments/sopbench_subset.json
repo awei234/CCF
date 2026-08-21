@@ -1,0 +1,15 @@
+{
+  "protocol": "rah-sopbench-v1",
+  "sopbench_commit": "2fdce4c57e6b02b725d5437ec079c142cffd8e07",
+  "model": "deepseek-v4-flash",
+  "temperature": 0,
+  "max_steps": 20,
+  "assemblies": ["react", "planner_only", "memory_only", "safety_only", "rah_full"],
+  "repeats": 5,
+  "tasks": [
+    "aircraft_inspection:000", "aircraft_inspection:001", "aircraft_inspection:002", "aircraft_inspection:003", "aircraft_inspection:004", "aircraft_inspection:005", "aircraft_inspection:006", "aircraft_inspection:007", "aircraft_inspection:008", "aircraft_inspection:009",
+    "content_flagging:000", "content_flagging:001", "content_flagging:002", "content_flagging:003", "content_flagging:004", "content_flagging:005", "content_flagging:006", "content_flagging:007", "content_flagging:008", "content_flagging:009",
+    "customer_service:000", "customer_service:001", "customer_service:002", "customer_service:003", "customer_service:004", "customer_service:005", "customer_service:006", "customer_service:007", "customer_service:008", "customer_service:009"
+  ],
+  "policy": "Each identifier is the zero-based row number in the official test_set_with_outputs.csv. Failed runs are retained; retries receive distinct run IDs."
+}
